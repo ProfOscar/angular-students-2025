@@ -1,0 +1,14 @@
+@for (student of studentList; track $index) {
+<!-- <p *ngFor="let student of studentList"> -->
+<p [ngStyle]="{'backgroundColor': student.gender == 'F' ? femaleColor : maleColor}"
+    [ngClass]="{'absent': !student.present}">
+    Student {{$index + 1}}: {{student.name}} From {{student.city}} IS
+    <!-- <span *ngIf="student.present">Present</span>
+    <span *ngIf="!student.present">Absent</span> -->
+    @if (student.present) {
+    Present
+    } @else {
+    Absent
+    }
+</p>
+}
