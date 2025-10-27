@@ -22,7 +22,7 @@ export class Student {
     { "name": "Jack", "city": "Fossano", "gender": "M", "present": true }
   ];
 
-  student:any = {};
+  student: any = {};
 
   maleColor = "lightblue";
   femaleColor = "pink";
@@ -34,5 +34,17 @@ export class Student {
 
   generaNumero(a: number, b: number) {  // b escluso
     return Math.floor((b - a) * Math.random()) + a;
+  }
+
+  getStyle(student:any) {
+    const color: string = student.gender == "F" ? this.femaleColor : this.maleColor;
+    const decoration: string = student.present ? "none" : "underline";
+    const weight: string = student.present ? "normal" : "bold";
+
+    return {
+      "backgroundColor": color,
+      "textDecoration": decoration,
+      "font-weight": weight
+    }
   }
 }
